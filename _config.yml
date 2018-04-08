@@ -1,6 +1,6 @@
 # Site settings
 title: Shinning # 你的博客名字，可以定义修订
-header-img: "img/twitter.jpg"
+header-img: "img/facebook.jpg"
 tagline: "cn"  
 description: "这是我的博客"  # 一句话描述你的博客
 baseurl: ""
@@ -13,8 +13,8 @@ owner:
   bio: "这是我的博客" # 填写作者信息：博客描述
 
 # Data
-gavatar: img/favicon.png # 浏览器地址栏小图标，可自定义更改
-favicon: img/favicon.png # 浏览器地址栏小图标，可自定义更改
+gavatar: img/favicon.ico # 浏览器地址栏小图标，可自定义更改
+favicon: img/favicon.ico # 浏览器地址栏小图标，可自定义更改
 
 douban_username:  # 你的豆瓣id
 twitter_username: 
