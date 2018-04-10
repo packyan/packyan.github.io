@@ -14,7 +14,8 @@ os X系统中sublime的相关配置
 1. OS X 底部预留空间问题
 配置文件里添加 
 `"scroll_past_end": true`
-2. c++11 build-system
+2. 新标签页打开文件：`"open_files_in_new_window": false`
+3. c++11 build-system
 
 ```
 {
