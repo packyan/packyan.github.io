@@ -1,7 +1,7 @@
 ---
 layout: post
 title: cs231n Assignment1 笔记
-date: 2018-2-16
+date: 2018-4-9
 categories: blog
 tags: [Python,cs231n]
 description: 入坑cs231n卷积神经网络入门，好多数学公式，赶快记起来。
@@ -106,3 +106,8 @@ dists = np.sqrt(-2*M+tr+np.matrix(te).T)
     ('tr.shape = ', (5000L,))
     ('dists.shape = ', (500L, 5000L))
 ```
+
+## Logs
+1. 2018-2-16 入坑，完成了knn算法的学习，了解了基本原理。
+2. 2018-2-26 完成了knn算法的实践。
+3. 2018-3-15 重新开始~~了解了一下broadcasting机制。
