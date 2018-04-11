@@ -24,6 +24,7 @@ description: 入坑cs231n卷积神经网络入门，好多数学公式，赶快�
 2. $记P_i是P的第i行，同理C_j是C的第j行$：
 
 $$P_i = [P_{i1}  \quad P_{i2} \quad \cdots \quad P_{iD}]$$
+
 $$C_j = [C_{j1} \quad C_{j2} \quad \cdots \quad C_{jD}]$$
 
 3. 计算一下$P_i$到 $C_j$的距离：
@@ -36,17 +37,14 @@ $$
 
 4. 结果矩阵的每行元素：
 
-{% raw %}
-\begin{equation}
+$$
 Res(i) = \sqrt{(||P_i||^2 \quad ||P_i||^2 \quad \cdots ||P_i||^2) + (||C_1||^2 \quad ||C_2||^2 \quad \cdots \quad ||C_N||^2) - 2 * P_i (C_1' \quad C_2' \quad \cdots \quad C_N')} \\
 =\sqrt{(||P_i||^2 \quad ||P_i||^2 \quad \cdots ||P_i||^2) + (||C_1||^2 \quad ||C_2||^2 \quad \cdots \quad ||C_N||^2) - 2 * P_iC'}
-\end{equation}
-{% endraw %}
+$$
 
 5. 结果矩阵为：
 
-{% raw %}
-\begin{equation}
+$$
 Res = \sqrt{
 \begin{pmatrix} 
 ||P_1||^2 && ||P_1||^2 && \cdots && ||P_1||^2 \\
@@ -85,8 +83,7 @@ Res = \sqrt{
 \end{pmatrix}_{1 \times N}
 -2P_{M\times D}C'_{N\times D}
 }
-\end{equation}
-{% endraw %}
+$$
 
 python代码可以这样写：
 
