@@ -38,13 +38,16 @@ d(P_i, C_j) =\sqrt{(P_{i1} - P_{j1})^2 + (P_{i2} - P_{j2})^2 + \cdots + (P_{iD} 
 
 4. 结果矩阵的每行元素：
 
+{% raw %}
 \begin{equation}
 Res(i) = \sqrt{(||P_i||^2 \quad ||P_i||^2 \quad \cdots ||P_i||^2) + (||C_1||^2 \quad ||C_2||^2 \quad \cdots \quad ||C_N||^2) - 2 * P_i (C_1' \quad C_2' \quad \cdots \quad C_N')} \\
 =\sqrt{(||P_i||^2 \quad ||P_i||^2 \quad \cdots ||P_i||^2) + (||C_1||^2 \quad ||C_2||^2 \quad \cdots \quad ||C_N||^2) - 2 * P_iC'}
 \end{equation}
+{% endraw %}
 
 5. 结果矩阵为：
 
+{% raw %}
 \begin{equation}
 Res = \sqrt{
 \begin{pmatrix} 
@@ -85,6 +88,7 @@ Res = \sqrt{
 -2P_{M\times D}C'_{N\times D}
 }
 \end{equation}
+{% end raw %}
 
 python代码可以这样写：
 
