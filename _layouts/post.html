@@ -101,19 +101,23 @@ layout: default
 
 
 
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"cnfeat"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+<!-- Gitment公共JS代码 start (一个网页只需插入一次) -->
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'location.href', // 可选。默认为 location.href
+  owner: 'packyan',
+  repo: 'packyan.github.io',
+  oauth: {
+    client_id: 'f8b50742cbd2d03bf2db',
+    client_secret: 'c51f69cbcaecad9c8cf3e098a3df3d505d43f35b',
+  },
+})
+gitment.render('container')
 </script>
-<!-- 多说公共JS代码 end -->
+<!-- Gitment公共JS代码 end -->
 
 <!-- async load function -->
 <script>
