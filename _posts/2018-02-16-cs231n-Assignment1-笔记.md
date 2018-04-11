@@ -44,6 +44,7 @@ Res(i) = \sqrt{(||P_i||^2 \quad ||P_i||^2 \quad \cdots ||P_i||^2) + (||C_1||^2 \
 \end{equation}
 
 5. 结果矩阵为：
+
 \begin{equation}
 Res = \sqrt{
 \begin{pmatrix} 
