@@ -3,7 +3,7 @@ title: Shinning # 你的博客名字，可以定义修订
 header-img: "img/facebook.jpg"
 tagline: "cn"  
 description: "这是我的博客"  # 一句话描述你的博客
-baseurl: ""
+baseurl: "https://packyan.github.io"
 url: "https://packyan.github.io"  # 此处填写你的博客地址 
 
 # About/contact
