@@ -88,7 +88,7 @@ Res = \sqrt{
 -2P_{M\times D}C'_{N\times D}
 }
 \end{equation}
-{% end raw %}
+{% endraw %}
 
 python代码可以这样写：
 
