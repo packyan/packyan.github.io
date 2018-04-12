@@ -7,7 +7,7 @@ tags: [Python,numpy]
 description: 入坑cs231n卷积神经网络入门，前期用到的都是python做assignment,主要用到numpy,scipy等数学工具，但是由于不太熟悉这些Python工具，所以遇到的问题都记录下来，以待研究。
 ---
  入坑cs231n卷积神经网络入门，前期用到的都是python做assignment,主要用到numpy,scipy等数学工具，但是由于不太熟悉这些Python工具，所以遇到的问题都记录下来，以待研究。   
-标签（空格分隔）： Python
+标签（空格分隔）： Python 
 
 ---
 ## Python 入门
@@ -358,7 +358,65 @@ print a[0, 1]   # Prints "77"
 
 [python 教程](https://zhuanlan.zhihu.com/p/20878530?refer=intelligentunit)
 
-\\contiue
+
+### 数据类型
+每个Numpy数组都是数据类型相同的元素组成的网格。Numpy提供了很多的数据类型用于创建数组。当你创建数组的时候，Numpy会尝试猜测数组的数据类型，你也可以通过参数直接指定数据类型，例子如下：
+
+```py
+import numpy as np
+
+x = np.array([1, 2])  # Let numpy choose the datatype
+print x.dtype         # Prints "int64"
+
+x = np.array([1.0, 2.0])  # Let numpy choose the datatype
+print x.dtype             # Prints "float64"
+
+x = np.array([1, 2], dtype=np.int64)  # Force a particular datatype
+print x.dtype                         # Prints "int64"
+```
+
+### 数组计算
+
+重点来了，学会numpy的数组计算可以在Python下写出 **Vectorized code**.
+np的数组计算，基本的`+`,`-`,`*`,`/`,`sqrt`都是Elementwise的。
+对应的numpy函数是`np.add()`, `np.subtract()`, `np.multiply()`, `np.divide()`, `np.sqrt()`
+>基本数学计算函数会对数组中元素逐个进行计算，既可以利用操作符重载，也可以使用函数方式：
+
+```py
+import numpy as np
+
+x = np.array([[1,2],[3,4]], dtype=np.float64)
+y = np.array([[5,6],[7,8]], dtype=np.float64)
+
+# Elementwise sum; both produce the array
+# [[ 6.0  8.0]
+#  [10.0 12.0]]
+print x + y
+print np.add(x, y)
+
+# Elementwise difference; both produce the array
+# [[-4.0 -4.0]
+#  [-4.0 -4.0]]
+print x - y
+print np.subtract(x, y)
+
+# Elementwise product; both produce the array
+# [[ 5.0 12.0]
+#  [21.0 32.0]]
+print x * y
+print np.multiply(x, y)
+
+# Elementwise division; both produce the array
+# [[ 0.2         0.33333333]
+#  [ 0.42857143  0.5       ]]
+print x / y
+print np.divide(x, y)
+
+# Elementwise square root; produces the array
+# [[ 1.          1.41421356]
+#  [ 1.73205081  2.        ]]
+print np.sqrt(x)
+```
 
 ### numpy基本函数
 1. `np.square()` 求平方
@@ -374,32 +432,32 @@ x.argsort()
 
 输出结果是：`y=array([3,0,2,1,4,5])` 
 
+```py
+import numpy as np
+
+x = np.array([[1,2],[3,4]])
+
+print np.sum(x)  # Compute sum of all elements; prints "10"
+print np.sum(x, axis=0)  # Compute sum of each column; prints "[4 6]"
+print np.sum(x, axis=1)  # Compute sum of each row; prints "[3 7]"
+```
+
 从函数名字可以知道这是对一个数组进行排序，可以从结果上看到，这是一种 **将原数组排序之后，提取元素在原数组中的索引** 的排序算法，即 *将x中的元素从小到大排列，提取其对应的index(索引)，然后输出到y*  最小的为原数组index = 3的元素，最大的是原数组中index = 5的元素。
 
 `x.argsort()[:k]` 表示把排在前k的索引提取出来。
 
-5. `np.bincount()`
-
-返回的bin数组大小比实参数组`x`中最大值大1，每个bin给出了它的索引值在`x`中出现的次数
-
-得到每个index出现的次数，即每个元素出现的次数。
-
+1. `np.bincount()`返回的bin数组大小比实参数组`x`中最大值大1，每个bin给出了它的索引值在`x`中出现的次数得到每个index出现的次数，即每个元素出现的次数。
 ```py
 x = np.array([1,5,6,7,5,5])
 np.bincount(x)
 # output
 # array([0, 1, 0, 0, 0, 3, 1, 1])
 ```
-
-6. `np.argmax()`
-
-返回最大数的索引
-
-7. `axis = 0`  and `axis = 1` 区别
+2. `np.argmax()`返回最大数的索引
+3. `axis = 0`  and `axis = 1` 区别
 
 > axis=0代表往跨行（down)，而axis=1代表跨列（across)，作为方法动作的副词
-> 官方解释：轴用来为超过一维的数组定义的属性，二维数据拥有两个轴：第0轴沿着行的垂直往下，第1轴沿着列的方向水平延伸。
-
+> 官方解释：轴用来为超过一维的数组定义的属性，二维数据拥有两个轴：第0轴沿着行的垂直往下，第1轴沿着列的方向水平延伸.
 > 1. 使用0值表示沿着每一列或行标签\索引值向下执行方法
 > 2. 使用1值表示沿着每一行或者列标签模向执行对应的方法
 
@@ -415,7 +473,82 @@ np.array_split(x,3)
 # [array([0, 1, 2]), array([3, 4, 5]), array([6, 7, 8])]
 ```
 
+### 广播 Broadcasting
 
+这个也是numpy强有力的机制之一，它可以让不同大小的矩阵进行数学计算。
+
+我们常常会有一个小的矩阵和一个大的矩阵，然后我们会需要用小的矩阵对大的矩阵做一些计算。
+
+举个例子，如果我们想要把一个向量加到矩阵的每一行，我们可以这样做：
+
+```py
+import numpy as np
+
+# We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = np.empty_like(x)   # Create an empty matrix with the same shape as x
+
+# Add the vector v to each row of the matrix x with an explicit loop
+for i in range(4):
+    y[i, :] = x[i, :] + v
+
+# Now y is the following
+# [[ 2  2  4]
+#  [ 5  5  7]
+#  [ 8  8 10]
+#  [11 11 13]]
+print y
+```
+
+这样是行得通的，但是当x矩阵非常大，利用循环来计算就会变得很慢很慢。我们可以换一种思路：
+
+```py
+import numpy as np
+
+# We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+vv = np.tile(v, (4, 1))  # Stack 4 copies of v on top of each other
+print vv                 # Prints "[[1 0 1]
+                         #          [1 0 1]
+                         #          [1 0 1]
+                         #          [1 0 1]]"
+y = x + vv  # Add x and vv elementwise
+print y  # Prints "[[ 2  2  4
+         #          [ 5  5  7]
+         #          [ 8  8 10]
+         #          [11 11 13]]"
+```
+
+利用 **广播** 机制，可以直接运算
+
+```py
+import numpy as np
+
+# We will add the vector v to each row of the matrix x,
+# storing the result in the matrix y
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = x + v  # Add v to each row of x using broadcasting
+print y  # Prints "[[ 2  2  4]
+         #          [ 5  5  7]
+         #          [ 8  8 10]
+         #          [11 11 13]]"
+```
+
+对两个数组使用广播机制要遵守下列规则：
+
+1. 如果数组的秩不同，使用1来将秩较小的数组进行扩展，直到两个数组的尺寸的长度都一样。
+2. 如果两个数组在某个维度上的长度是一样的，或者其中一个数组在该维度上长度为1，那么我们就说这两个数组在该维度上是相容的。
+3. 如果两个数组在所有维度上都是相容的，他们就能使用广播。
+4. 如果两个输入数组的尺寸不同，那么注意其中较大的那个尺寸。因为广播之后，两个数组的尺寸将和那个较大的尺寸一样。
+5. 在任何一个维度上，如果一个数组的长度为1，另一个数组长度大于1，那么在该维度上，就好像是对第一个数组进行了复制。
+译者注：强烈推荐阅读文档中的例子。
+[解释](http://scipy.github.io/old-wiki/pages/EricsBroadcastingDoc)
+[文档](https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)
 ## Logs:
 1. 2018-02-16 入坑
 2. 2018-04-12 补充详细内容
