@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Socket TCP通信 分包问题
-date: 2018-4-20
+date: 2018-4-21
 categories: blog
 tags: [Socket,TCP]
 description: TCP通信方式会将大的数据包拆分成几个包发出去，这时候要在接收方做一定的处理，不然收到的数据是不完整的，只有一个大小为1460字节的包。
@@ -79,6 +79,7 @@ while(true)
 
 ## Reference
 
-[【Python】TCP Socket的粘包和分包的处理](https://www.cnblogs.com/skying555/p/8322401.html)
-[SOCKET通信中TCP、UDP数据包大小的确定](http://blog.sina.com.cn/s/blog_8eba0c2a0101meoz.html)
+1. [【Python】TCP Socket的粘包和分包的处理](https://www.cnblogs.com/skying555/p/8322401.html)
+2. [SOCKET通信中TCP、UDP数据包大小的确定](http://blog.sina.com.cn/s/blog_8eba0c2a0101meoz.html)
+
 
