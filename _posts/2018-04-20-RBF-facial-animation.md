@@ -1,7 +1,7 @@
 ---
 layout: post
 title: RBF在人脸动画中的运用
-date: 2018-4-27
+date: 2018-04-27
 categories: blog
 tags: [RBF,插值]
 description: 插值算法
