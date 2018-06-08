@@ -18,8 +18,7 @@ description: Kinect 三维重建 基本原理
 
 ## KinectFusion
 ![KinectFusion 算法流程图](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121222920584-1587043074.png "图 1 KinectFusion 算法流程图")
-![pic1]({{site.baseurl}}/blogimg/kinectfusion.png)
-
+![kinectfusion]({{site.baseurl}}/blogimg/kinectfusion.jpg)
 KinectFusion主要有四部分：
 1. 采集原始RBGD数据，得到深度图像，获取点云voxel坐标和法向量
 2. 根据上一帧预测出的点云和当前数据计算当前相机姿态
