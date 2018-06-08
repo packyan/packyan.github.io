@@ -18,6 +18,7 @@ description: Kinect 三维重建 基本原理
 
 ## KinectFusion
 ![KinectFusion 算法流程图](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121222920584-1587043074.png "图 1 KinectFusion 算法流程图")
+![pic1]({{site.baseurl}}/blogimg/kinectfusion.png)
 
 KinectFusion主要有四部分：
 1. 采集原始RBGD数据，得到深度图像，获取点云voxel坐标和法向量
@@ -34,9 +35,10 @@ KinectFusion主要有四部分：
 > 一般的滤波是在空间域做加权平均，像素越靠近中心点，权重越高。双边滤波是在空间域加权平均的基础上再对值域加权平均，即像素灰度值越靠近中心像素的灰度值，权重越高。在边界附近，灰度值差异很大，所以边界两边的像素在空间域靠在一起，但是由于灰度值差别非常大，对于互相的权重很低，所以可以保持清晰的边界。
 
 ![双边滤波](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121222957193-187410483.png)
-
+![pic2]({{site.baseurl}}/blogimg/dualfilter.png)
 
 ![原始数据处理流程](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121222943396-1329037724.png)
+![pic3]({{site.baseurl}}/blogimg/odataprocess.png)
 
 拿到降噪后的深度图$D_k$之后，再根据相机内参$K$，可以反投影出每个像素点的三维坐标，这就是Vertex map $Vk_$。公式中u是像素坐标，u˙是对应的齐次坐标。每个vertex的法向量可以很方便的通过相邻vertex用叉乘得到。然后对深度图降采样，行数、列数各减一半。降采样使用的是均值降采样，即深度图上四个相邻像素的深度值被平均成一个值。构建三层金字塔的目的是为了从粗到细地计算相机位置姿态，有加速计算的效果。
 
@@ -47,7 +49,7 @@ ICP算法对待拼接的2片点云，首先根据一定的准则确立对应点�
 有两种方式，一种是point-to-point和point-to-plane两种,后者收敛速度快，而且鲁棒性更好[4]。
 
 ![point-to-plain](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121223016771-1650719820.png)
-
+![point-to-plain2]({{site.baseurl}}/blogimg/point-to-plain.png)
 
 
 
@@ -59,7 +61,7 @@ ICP算法对待拼接的2片点云，首先根据一定的准则确立对应点�
 
 先介绍一个概念SDF(Signed Distance Function)，SDF描述的是点到面的距离，在面上为0，在面的一边为正，另一边为负。TSDF(Truncated SDF)是只考虑面的邻域内的SDF值，邻域的最大值是max truncation的话，则实际距离会除以max truncation这个值，达到归一化的目的，所以TSDF的值在-1到+1之间
 ![](https://images2017.cnblogs.com/blog/1107868/201801/1107868-20180121223052459-1534928814.png)
-
+![tsdf]({{site.baseurl}}/blogimg/TSDF.png)
 
 ## surface prediction
 
