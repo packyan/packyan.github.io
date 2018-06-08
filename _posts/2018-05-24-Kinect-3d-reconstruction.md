@@ -3,7 +3,7 @@ layout: post
 title: Kinect 三维重建
 date: 2018-5-24
 categories: blog
-tags: [Kinect,三维]
+tags: [Kinect,Fusion,ICP]
 description: Kinect 三维重建 基本原理 
 ---
 
