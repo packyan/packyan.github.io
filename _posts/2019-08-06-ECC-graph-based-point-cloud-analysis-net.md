@@ -1,0 +1,155 @@
+**ECConv**
+
+alias of **torch_geometric.nn.conv.nn_conv.NNConv**
+
+The continuous kernel-based convolutional operator from the [“Neural Message Passing for Quantum Chemistry”](https://arxiv.org/abs/1704.01212) paper. This convolution is also known as the edge-conditioned convolution from the [“Dynamic Edge-Conditioned Filters in Convolutional Neural Networks on Graphs”](https://arxiv.org/abs/1704.02901) paper (see [**torch_geometric.nn.conv.ECConv**](https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.ECConv) for an alias):
+
+![img](data:image/png;base64,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)
+
+ 
+
+**最早提出将图卷积应用于点云数据种的文献。**
+
+四个问题
+
+1. 要解决什么问题？
+
+2. - 使用**深度学习处理3D点云**。
+   - 设计一个可以直接使用点云作为输入的CNN架构，同时可以获取足够的局部信息，可适用于分类。
+
+3. 用了什么方法解决？
+
+4. - 提出了一个新的神经网络模块—— edge-conditioned convolution (ECC)。
+
+5. 效果如何？
+
+6. - 在悉尼数据集上建立了新的技术水平。此外，我们在图分类数据集NCI1上优于其他基于深度学习的方法。
+
+7. 还存在什么问题？
+
+8. - 希望未来可以处理mesh，而不是点云。
+   - 计划在具有连续边缘标签的大型图形上减少GPU内存消耗，例如随机聚类，随机聚类也可以作为一种数据增强方式randomized      clustering,。
+
+ 
+
+ 
+
+**摘要**
+
+ 
+
+可以将许多问题表达为**图形结构数据的预测**。在这项工作中，我们将**卷积运算符从常规网格推广到任意图形**，同时**避开谱域**，这使我们能够**处理不同大小和连通性的图形**。为了超越简单的扩散，滤波器权重取决于顶点附近的特定边缘标签。结合图粗化的正确选择，我们探索了用于图分类的构造深度神经网络。特别是，我们展示了我们在点云分类中的公式化的一般性，我们设置了新的技术水平，并在图表分类数据集上，我们的表现优于其他深度学习方法。
+
+ 
+
+**1.简介**
+
+ 
+
+卷积神经网络（CNN）已经在基础数据表示具有网格结构的任务中获得了大量普及，例如在语音处理和自然语言理解（1D，时间卷积），图像分类和分割（2D，空间卷积），或者在视频解析中（3D，体积卷积）[21]。
+
+另一方面，在许多其他任务中，数据自然地位**于不规则或**通常**非欧几里德域**上，在许多情况下可以将其构造为图形。这些包括3D建模，计算化学和生物学，地理空间分析，社交网络或自然语言语义和知识库中的问题，仅举几例。
+
+假设表示的局部性，平稳性和组合性原则至少保持在数据的某个级别，考虑用于处理它的分层CNN类架构是有意义的。
+
+然而，从网格到一般图的CNN的推广并不简单，并且最近成为兴趣增加的话题。我们确定图形卷积的**当前公式不利用****边缘标签**，这导致局部图形邻域的过度均匀视图，其效果类似于在图像上的常规卷积中强制滤波器的旋转不变性。因此，在这项工作中，我们提出了一种卷积操作，它可以利用这个信息通道，并表明它可以带来改进的图分类性能。
+
+这种新颖的配方也开辟了更广泛的应用范围;我们专门针对点云。
+
+ 
+
+到目前为止，深度学习忽略了点云，他们的体素化是我们所知的唯一趋势[25,18]。为了提供具有不同优势和劣势的竞争性替代方案，我们在这项工作中从点云构建欧几里德空间中的图形，并展示悉尼数据集LiDAR扫描的最新技术性能[9]。
+
+ 
+
+我们的贡献如下：
+
+•我们对在空间域中执行的图形信号进行类似卷积的运算，其中滤波器权重以边缘标签（离散或连续）为条件，并为每个特定输入样本动态生成。我们的网络在整个数据集中使用任意变化结构的图形。
+
+•我们是第一个将**图形卷积应用于点云分类的人**。我们的方法优于体积方法，并在悉尼数据集上获得了最新的技术性能，同时保留了稀疏性和可能的精细细节。
+
+•我们在图表分类基准NCI1 [38]上达到了竞争性的绩效水平，优于其他基于深度学习的方法。
+
+2.相关工作
+
+Bruna等人已经介绍了用图表建模的不规则域的卷积网络类比的第一个公式。 [6]，他研究了表示的空间和谱域，以进行局部滤波。
+
+ 
+
+**谱方法**
+
+ 
+
+卷积算子的数学上合理的定义利用了**谱分析理论**，其中它对应于通过图形傅立叶变换在变换到谱域中的顶点上的信号的乘法。然后，在[6]被建模为B样条的情况下，通过光谱滤波器的平滑度给出滤波器的空间局部性。该变换涉及与特征向量矩阵的非常昂贵的乘法。然而，通过将滤波器参数化为特征值的切比雪夫多项式及其近似评估，Defferrard等人最近已经实现了计算上有效的局部滤波。 [11]。尽管如此，**滤波器仍然是在拉普拉斯图的谱的背景下学习的，因此对于数据集中的所有图，它必须是相同的**。这意味着图形结构是固定的，只有顶点上定义的信号可能不同。这排除了应用于数据集中图形结构变化的问题，例如网格，点云或不同的生化数据集。
+
+ 
+
+ 
+
+为了涵盖这些重要案例，我们在空域制定了我们的滤波方法，其中评估的复杂性和本地化属性由构造提供。这里的主要挑战是处理局部邻域之间的权重共享[6]，因为与特定顶点相邻的顶点数量不同，并且它们的排序通常不能很好地定义。
+
+空间方法。布鲁纳等人。 [6]假设固定图形结构，并没有在社区之间分享任何权重。
+
+有几部作品独立处理了这个问题。 Duvenaud等人。 [14]对相邻顶点上的信号求和，然后进行权重矩阵乘法，在所有边缘之间有效地共享相同的权重。 Atwood和Towsley [2]根据两个顶点之间的跳数共享权重。 Kipf和Welling [20]进一步近似[11]的谱方法并削弱了对拉普拉斯算子的依赖性，但最终得到了邻域的中心 - 环绕加权，
+
+ultimately arrive at center-surround weighting of neighborhoods.
+
+。这些方法都没有捕获邻域的更精细结构，因此不会在网格上推广标准卷积。
+
+相比之下，我们的方法可以利用可能的**边缘标签**，并显示出一般化的常规卷积（Section
+
+3.2）。
+
+ 
+
+Niepert等人的方法。 [27]引入了一种用于线性化所选图形邻域的启发式算法，以便可以使用传统的1D CNN。我们分享他们在社区中捕捉结构的目标，但以不同的方式接近它。最后，Graph神经网络[33,23]在图形上传播特征直到（接近）收敛，并利用边缘标签作为我们所做的信息源之一。
+
+但是，它们的系统与当前的多层前馈体系结构完全不同，使得重用当今的常见构建块并不简单。
+
+ 
+
+点云和网格上的CNN。
+
+ 
+
+关于点云或网格的深度学习几乎没有什么工作。 Masci等人。 [24]使用测地距离定义围绕3D网格的每个顶点的补丁描述符的卷积，在深度学习架构中制定。使用深度学习处理点云的唯一方法是在将它们馈送到3D CNN之前首先对它们进行体素化，无论是用于分类[25]还是用于分割[18]目的。**相反，**我们将点云视为**欧几里德空间中的图**。
+
+ 
+
+3.方法
+
+我们提出了一种利用边缘标签对局部图邻域进行卷积的方法（Section
+
+3.1）并将其展示为概括定期卷积
+
+（第3.2节）。之后，在点云（第3.4节）和一般图（第3.5节）的情况下，我们使用卷积运算符（第3.3节）呈现深度网络。
+
+3.1。 EdgeConditioned Convolution
+
+ 
+
+**3.3。带ECC的Deep Networks**
+
+虽然ECC原则上适用于顶点分类和图分类任务，但在本文中，我们仅限于后者，即预测整个输入图的类。因此，我们遵循通过**全局池和完全连接层排列的交错卷积和池的前馈网络的通用架构模式**，请参见图3进行说明。
+
+这样，来自本地社区的信息在连续的层上组合以获得上下文（扩大接收场）。虽然边缘标签对于特定图形是固定的，但是通过滤波器生成网络的它们（学习的）解释可以在层与层之间改变（**F1的权重不在层之间共享**）。因此，**ECC对1跳邻域N（i）的限制不是****约束**，**类似于在正常CNN中使用小的3****×3滤波器来换取更深的网络**，这已知是有益的[17]。
+
+我们在每次卷积后使用批量标准化[19]，这是学习收敛所必需的。有趣的是，我们没有成功使用其他特征规范化技术，如数据相关初始化[26]或层规范化[3]。
+
+ 
+
+Pooling
+
+ 
+
+虽然（非跨步）卷积层和所有逐点层不改变基础图并且仅在顶点上演化信号，但是池化层被定义为在新的粗化图的顶点上输出聚合信号。因此，必须为每个输入图构建一个hmax逐渐变粗的图的金字塔。让我们在这里扩展我们的符号，用另外的上标h∈{0，..，hmax}来区分必要时金字塔中的不同图G（h）=（V（h），E（h））。每个G（h）还具有其相关标记L（h）和信号X（h），l。**粗化通常包括三个步骤**：**子采样或合并顶点**，**创建新的边缘结构**E（h）和标记L（h）（所谓的简化），**并将原始图中的顶点映射到粗糙的顶点中的顶点。 M（h）：V（h-1）7→V（h）。**我们使用不同的算法取决于我们是否使用欧几里德空间中的一般图形或图形，因此我们推迟讨论应用程序的细节。最后，具有索引lh的合并层将X（h-1），lh-1聚合成基于M（h）的较低维X（h），lh。有关使用引入的表示法的示例，请参见图3。
+
+在粗化期间，由于始终存在自我边缘，因此可以在较低分辨率下将小图减少到几个断开的顶点而没有问题。由于该体系结构设计用于处理具有变量n，m的图形，因此我们通过全局平均/最大池化处理最低图形分辨率中的变化顶点数n（hmax）。
+
+3.4。在点云中的应用
+
+点云是由许多采集技术产生的重要3D数据模态，例如激光扫描（LiDAR）或多视图重建。由于它们的自然不规则性和稀疏性，到目前为止，使用深度学习处理点云的唯一方法是在将它们馈送到3D CNN之前首先对它们进行体素化，无论是用于分类[25]还是用于分割[18]目的。这种密集的表示非常硬件友好，并且易于使用当前的深度学习框架来处理。
+
+另一方面，也存在一些缺点。
+
+首先，体素表示在内存方面往往比通常稀疏点云要贵得多（我们不知道在稀疏张量上有任何GPU实现的卷积）。其次，将它们装入固定大小的3D网格的必要性带来了离散化的伪像和度量标度的损失以及可能的细节。通过这项工作，我们希望通过直接对点云进行深度学习，为主流提供有竞争力的替代方案。据我们所知，我们是第一个证明这样结果的人。
