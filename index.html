@@ -2,7 +2,8 @@
 layout: page
 description: "A slow learner's Blog"
 ---
-<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=I1otT9EQsMSq4SnY2txNBns3jPwCRsjeSPNAUVVTW58"></script>
+
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -39,3 +40,4 @@ description: "A slow learner's Blog"
     {% endif %}
 </ul>
 {% endif %}
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=I1otT9EQsMSq4SnY2txNBns3jPwCRsjeSPNAUVVTW58&cl=ffffff&w=a"></script>
